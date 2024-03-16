@@ -1,4 +1,4 @@
 Minichallenges videos:
-Minichallnge 1:
-Minichallenge 2:
-Minichallenge 3:
+Minichallenge 1: <br />
+Minichallenge 2: <br />
+Minichallenge 3: <br />
