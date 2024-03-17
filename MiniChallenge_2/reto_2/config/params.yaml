@@ -1,7 +1,34 @@
 signal_generator_node:
   ros__parameters:
-    type_int: 2
-    time_float: 2.0
-    offset_float: 3.0
-    frequency_float: 4.0
-    amplitude_float: 2.5
+    type_int: 1
+    sine:
+      time: 0.0
+      offset: 2.0
+      frequency: 2.0
+      amplitude: 2.5
+      phase: 0.0
+    square:
+      time: 0.0
+      offset: 2.0
+      frequency: 2.0
+      amplitude: 2.5
+      phase: 0.0
+    sawtooth:
+      time: 0.0
+      offset: 2.0
+      frequency: 2.0
+      amplitude: 2.5
+      phase: 0.0
+    cosine:
+      time: 0.0
+      offset: 2.0
+      frequency: 2.0
+      amplitude: 2.5
+      phase: 0.0
+    half_square:
+      time: 0.0
+      offset: 2.0
+      frequency: 2.0
+      amplitude: 2.5
+      phase: 0.0
+    

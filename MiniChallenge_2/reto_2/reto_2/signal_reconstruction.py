@@ -23,23 +23,29 @@ class My_Subscriber(Node):
         self.time = msg.time
         self.offset = msg.offset
         self.frequency = msg.frequency   
+        self.phase = msg.phase
     
     def resignal_timer_callback(self):
+        #If there is a signal, then it recontructs it
         if(self.time is not None):
             if(self.type == 1):
-                result = self.amplitude*np.sin(2*np.pi*self.time*self.frequency) + self.offset
+                result = self.amplitude*np.sin(2*np.pi*self.time*self.frequency + self.phase) + self.offset
             elif(self.type == 3):
-                result = self.amplitude*signal.sawtooth(2*np.pi*self.time*self.frequency) + self.offset
+                result = self.amplitude*signal.sawtooth(2*np.pi*self.time*self.frequency + self.phase) + self.offset
             elif(self.type == 2):
-                result = self.amplitude*signal.square(2*np.pi*self.time*self.frequency) + self.offset 
+                result = self.amplitude*signal.square(2*np.pi*self.time*self.frequency + self.phase) + self.offset 
             elif(self.type == 4):
-                result = abs(self.amplitude*np.cos(2*np.pi*self.time*self.frequency)) + self.offset
+                result = abs(self.amplitude*np.cos(2*np.pi*self.time*self.frequency + self.phase)) + self.offset
             elif(self.type == 5):
-                result = -self.amplitude*signal.square(np.pi/2*self.time*self.frequency) + self.offset  
+                result = -self.amplitude*signal.square(np.pi/2*self.time*self.frequency + self.phase) + self.offset  
             self.msg_resignal.data = result
             self.resignal_publisher.publish(self.msg_resignal)
             self.get_logger().info('Signal reconstructed: {}'.format(self.msg_resignal.data))
-        
+        #if there is no signal, the result is 0
+        elif():
+            result = 0
+
+
 def main(args=None):
     rclpy.init(args=args)
     m_s = My_Subscriber()
