@@ -32,7 +32,7 @@ class Process_Node(Node):
     def timer_callback(self):
         global result, proc_sig, time
         if((time is not None) and (result is not None) ):
-            proc_sig = result*np.cos(time*np.pi) + np.cos(time)*np.sin(time*np.pi)
+            proc_sig = result*np.cos(np.pi) + np.cos(time)*np.sin(np.pi)
             proc_sig = (proc_sig + 1)/2 
             self.msg_proc_sig.data = proc_sig
             self.proc_sig_publisher.publish(self.msg_proc_sig)
